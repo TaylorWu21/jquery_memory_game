@@ -1,0 +1,60 @@
+.image {
+	height: 150px;
+	width: 150px !important;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 20px;
+}
+
+.card {
+	background-image: url(/assets/wow_logo.png) !important;
+	cursor: pointer;
+}
+
+.death_knight {
+	background-image: url('/assets/death_knight.png');
+}
+
+.demon_hunter {
+	background-image: url('/assets/demon_hunter.png');
+}
+
+.druid {
+	background-image: url('/assets/druid.png');
+}
+
+.hunter {
+	background-image: url('/assets/hunter.png');
+}
+
+.mage {
+	background-image: url('/assets/mage.png');
+}
+
+.monk {
+	background-image: url('/assets/monk.png');
+}
+
+.paladin {
+	background-image: url('/assets/paladin.png');
+}
+
+.priest {
+	background-image: url('/assets/priest.png');
+}
+
+.rogue {
+	background-image: url('/assets/rogue.png');
+}
+
+.shaman {
+	background-image: url('/assets/shaman.png');
+}
+
+.warlock {
+	background-image: url('/assets/warlock.png');
+}
+
+.warrior {
+	background-image: url('/assets/warrior.png');
+}
