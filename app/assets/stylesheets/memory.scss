@@ -1,9 +1,27 @@
+h1, h2, h3, h4, h5, h6, p, span {
+	color: white;
+}
+
+.btn {
+	background-color: #2e7d32;
+	margin-bottom: 15px;
+}
+
+body {
+	background-image: url(/assets/wow_wallpaper.jpg);
+	background-size: cover;
+}
+
+.row {
+	padding-left: 30px;
+}
+
 .image {
-	height: 150px;
+	height: 170px;
 	width: 150px !important;
 	background-repeat: no-repeat;
 	background-size: contain;
-	margin: 20px;
+	margin: 10px;
 }
 
 .card {
