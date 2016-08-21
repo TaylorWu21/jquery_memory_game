@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	let count = 0;
+	let numberOfClicks = 0;
 	let choiceOne;
 	let choiceTwo;
 	let card = 1;
@@ -51,21 +51,21 @@ $(document).ready(function() {
 	  		Materialize.toast(rand, 4000);
 	  		$(choiceOne.id).addClass('card');
 	  		$(choiceTwo.id).addClass('card');
-	  		count = 0;
+	  		numberOfClicks = 0;
 	  		tries ++;
 	  	}
-	  	count ++;
-	  	if(count > 2) {
+	  	numberOfClicks ++;
+	  	if(numberOfClicks > 2) {
 	  		return;
 	  	}
 	  	$(this).removeClass('card');
-	  	if(count === 1) {
+	  	if(numberOfClicks === 1) {
 	  		choiceOne = {
 	  			value: $(this).attr("class"),
 	  			id: $(this).attr("id", card)
 	  		};
 	  	}
-	  	else if(count === 2) {
+	  	else if(numberOfClicks === 2) {
 	  		choiceTwo = {
 	  			value: $(this).attr("class"),
 	  			id: $(this).attr("id", card)
@@ -74,7 +74,7 @@ $(document).ready(function() {
 	  			let randomToast = ['NICE!', 'GOOD JOB!', 'NICE PICK', 'BRIT IS THE BEST']
 	  			let rand = randomToast[Math.floor(Math.random() * randomToast.length)];
 	  			Materialize.toast(rand, 4000);
-	  			count = 0;
+	  			numberOfClicks = 0;
 	  		}
 	  		else {
 	  			setTimeout(flipBack, 2000);
@@ -87,7 +87,7 @@ $(document).ready(function() {
 	$('.new_game').on('click', $(this), function() {
 		$('.image').remove();
 		tries = 1;
-		count = 0;
+		numberOfClicks = 0;
 		newGame();
 	})
 });
