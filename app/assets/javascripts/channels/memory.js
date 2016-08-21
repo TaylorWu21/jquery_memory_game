@@ -36,61 +36,59 @@ $(document).ready(function() {
   return array;
 	}
 
-	// Starts a new game
-	$('.new_game').on('click', $(this), function() {
-		tries = 1;
-		$('.image').addClass('card');
-	})
-
 	// Starts Game
 	function newGame() {
 		let mixedCards = shuffle(wowClass);
 		$(mixedCards).each(function(index, value) {
 			$('.add_cards').append("<div class='image col s2 card " + value +"'></div>");
-			console.log(value);
 		});
+		// Game Logic
+	  $('.card').on('click', $(this), function() {
+	  	function flipBack() {
+				let numberOfTries = $('.tries').text(tries);
+				let randomFailedToast = ['NOPE', 'SORRY', 'TOO BAD', 'TRY AGAIN', 'GET BETTER', 'RANDY YOU SUCK', 'NHI YOU SUCK'];
+				let rand = randomFailedToast[Math.floor(Math.random() * randomFailedToast.length)];
+	  		Materialize.toast(rand, 4000);
+	  		$(choiceOne.id).addClass('card');
+	  		$(choiceTwo.id).addClass('card');
+	  		count = 0;
+	  		tries ++;
+	  	}
+	  	count ++;
+	  	if(count > 2) {
+	  		return;
+	  	}
+	  	$(this).removeClass('card');
+	  	if(count === 1) {
+	  		choiceOne = {
+	  			value: $(this).attr("class"),
+	  			id: $(this).attr("id", card)
+	  		};
+	  	}
+	  	else if(count === 2) {
+	  		choiceTwo = {
+	  			value: $(this).attr("class"),
+	  			id: $(this).attr("id", card)
+	  		};
+	  		if(choiceOne.value === choiceTwo.value) {
+	  			let randomToast = ['NICE!', 'GOOD JOB!', 'NICE PICK', 'BRIT IS THE BEST']
+	  			let rand = randomToast[Math.floor(Math.random() * randomToast.length)];
+	  			Materialize.toast(rand, 4000);
+	  			count = 0;
+	  		}
+	  		else {
+	  			setTimeout(flipBack, 2000);
+	  		}
+	  	}
+	  });
 	}
 
-	newGame();
-
-	// Game Logic
-  $('.card').on('click', $(this), function() {
-  	function flipBack() {
-			let numberOfTries = $('.tries').text(tries);
-			let randomFailedToast = ['NOPE', 'SORRY', 'TOO BAD', 'TRY AGAIN', 'GET BETTER', 'RANDY YOU SUCK', 'NHI YOU SUCK'];
-			let rand = randomFailedToast[Math.floor(Math.random() * randomFailedToast.length)];
-  		Materialize.toast(rand, 4000);
-  		$(choiceOne.id).addClass('card');
-  		$(choiceTwo.id).addClass('card');
-  		count = 0;
-  		tries ++;
-  	}
-  	count ++;
-  	if(count > 2) {
-  		return;
-  	}
-  	$(this).removeClass('card');
-  	if(count === 1) {
-  		choiceOne = {
-  			value: $(this).attr("class"),
-  			id: $(this).attr("id", card)
-  		};
-  	}
-  	else if(count === 2) {
-  		choiceTwo = {
-  			value: $(this).attr("class"),
-  			id: $(this).attr("id", card)
-  		};
-  		if(choiceOne.value === choiceTwo.value) {
-  			let randomToast = ['NICE!', 'GOOD JOB!', 'NICE PICK', 'BRIT IS THE BEST']
-  			let rand = randomToast[Math.floor(Math.random() * randomToast.length)];
-  			Materialize.toast(rand, 4000);
-  			count = 0;
-  		}
-  		else {
-  			setTimeout(flipBack, 2000);
-  		}
-  	}
-  });
+	// Starts a new game
+	$('.new_game').on('click', $(this), function() {
+		$('.image').remove();
+		tries = 1;
+		count = 0;
+		newGame();
+	})
 });
 
