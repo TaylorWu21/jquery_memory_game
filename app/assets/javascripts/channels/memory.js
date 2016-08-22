@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	let count = 0;
 	let choiceOne;
 	let choiceTwo;
+	let count = 0;
 	let card = 1;
 	let tries = 1;
 	let wowClass = ['death_knight', 'death_knight',
